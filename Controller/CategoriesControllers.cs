@@ -52,7 +52,7 @@ namespace BackNoteWorksTech
             return CreatedAtAction("GetCategories", new {id = category.Id}, category);
         }
 
-        // Funcion eliminar
+        // Funcion eliminarr
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
