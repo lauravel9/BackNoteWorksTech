@@ -45,7 +45,7 @@ namespace BackNoteWorksTech
             Category category = new Category(){
                 Name = data.Name,
                 UpdateDate = DateTime.Now,
-                Status = "Activo"
+                Status = "Activo",
             };
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();

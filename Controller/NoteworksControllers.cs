@@ -41,8 +41,17 @@ namespace BackNoteWorksTech
         
         // Funcion crear
         [HttpPost]
-        public async Task <ActionResult<NoteWork>> PostNoteWork(NoteWork notework)
+        public async Task <ActionResult<NoteWork>> PostNoteWork([Bind("Title, Content")] NoteWork data)
         {
+
+             NoteWork notework = new NoteWork(){
+                Title = data.Title,
+                Content = data.Content,
+                UpdateDate = DateTime.Now,
+                Status = "Activo",
+                CategorieId = 2
+            };
+            
             _context.NoteWorks.Add(notework);
             await _context.SaveChangesAsync();
             return CreatedAtAction("GetNoteWork", new {id = notework.Id}, notework);
